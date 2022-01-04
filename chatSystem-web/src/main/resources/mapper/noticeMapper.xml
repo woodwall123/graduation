@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.travel.mapper.noticeMapper">
+    <resultMap id="noticeMap" type="com.graduation.travel.entity.Notice">
+        <id column="notice_id" property="noticeId"></id>
+        <result column="notice_title" property="noticeTitle"></result>
+        <result column="notice_content" property="noticeContent"></result>
+        <result column="photo" property="photo"></result>
+    </resultMap>
+    <select id="getAllNotice"  resultMap="noticeMap">
+        select * from notice
+    </select>
+    <insert id="editNotice">
+        insert into notice(notice_title,notice_content,photo) values (c#{noticeTitle},#{noticeContent},#{photo})
+    </insert>
+</mapper>

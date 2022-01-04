@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.travel.mapper.customerMessageMapper">
+    <resultMap id="customerMessageMap" type="com.graduation.travel.entity.Customer">
+        <id column="id" property="id"></id>
+        <result column="type" property="type"></result>
+        <result column="pet_name" property="petName"></result>
+        <result column="real_name" property="realName"></result>
+        <result column="phone_number" property="phoneNumber"></result>
+        <result column="mail_box" property="mailBox"></result>
+        <result column="account_number" property="accountNumber"></result>
+    </resultMap>
+    <insert id="createCustomer" parameterType="com.graduation.travel.entity.Customer">
+        insert into customer_message(type,pet_name,real_name,phone_number,mail_box,account_number) values (#{type},#{petName},#{realName},#{phoneNumber},#{mailBox},#{accountNumber})
+    </insert>
+<!--    <select id="selectFromID" resultMap="announcementMap">
+        select * from announcement where id = #{id}
+    </select>
+    <select id="selectTotalAnnoucement" resultMap="announcementMap">
+        select * from announcement where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>-->
+    <update id="updateCustomer" parameterType="com.graduation.travel.entity.Customer" >
+        update customer_message set pet_name = #{petName}, phone_number= #{phoneNumber},mail_box=#{mailBox}
+        where id = #{id}
+    </update>
+</mapper>
