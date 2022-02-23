@@ -1,2 +1,2 @@
-# ChatSyetem
-A part of my graduation project, chat component
+# Tourist website
+As a graduation project to provide tourism information website
